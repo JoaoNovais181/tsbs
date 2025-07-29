@@ -480,7 +480,7 @@ func verifyQuery(t *testing.T, q query.Query, humanLabel, humanDesc, path string
 		t.Errorf("incorrect raw query:\ngot\n%s\nwant\n%s", got, raw_query)
 	}
 
-	if influxql.Body != nil {
+	if influxql.Body == nil || string(influxql.Body) != raw_query {
 		t.Errorf("body not nil, got %+v", influxql.Body)
 	}
 }
