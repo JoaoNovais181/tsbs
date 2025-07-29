@@ -92,6 +92,8 @@ func (w *HTTPClient) Do(q *query.HTTP, opts *HTTPClientDoOptions) (lag float64, 
 		// print the response body for debugging:
 		body, _ := ioutil.ReadAll(resp.Body)
 		fmt.Fprintf(os.Stderr, "debug: %s in %7.2fms -- %s\n", q.HumanLabel, lag, string(body))
+		// print query body for debugging:
+		fmt.Fprintf(os.Stderr, "debug:   request: %s\n", string(q.String()))
 
 		panic("http request did not return status 200 OK")
 	}

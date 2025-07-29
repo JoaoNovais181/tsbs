@@ -29,7 +29,7 @@ func (g *BaseGenerator) fillInQuery(qi query.Query, humanLabel, humanDesc, influ
 	q.HumanDescription = []byte(humanDesc)
 	q.Method = []byte("POST")
 	q.Path = []byte("/api/v2/query")
-	q.Body = nil
+	q.Body = []byte(influxql)
 }
 
 // NewDevops creates a new devops use case query generator.
